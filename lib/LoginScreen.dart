@@ -36,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
             decoration: InputDecoration(
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14),
-                prefixIcon: Icon(Icons.email, color: Color(0xffd22b55)),
+                prefixIcon: Icon(Icons.email, color: Color(0xff0288D1)),
                 hintText: 'Email',
                 hintStyle: TextStyle(color: Colors.black38)),
           ),
@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
             decoration: InputDecoration(
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14),
-                prefixIcon: Icon(Icons.lock, color: Color(0xffd22b55)),
+                prefixIcon: Icon(Icons.lock, color: Color(0xff0288D1)),
                 hintText: 'Password',
                 hintStyle: TextStyle(color: Colors.black38)),
           ),
@@ -103,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
             data: ThemeData(unselectedWidgetColor: Colors.white),
             child: Checkbox(
               value: isRememberMe,
-              checkColor: Colors.red,
+              checkColor: Colors.cyan,
               activeColor: Colors.white,
               onChanged: (value) {
                 setState(() {
@@ -139,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Text(
           'LOGIN',
           style: TextStyle(
-              color: Color(0xffe07e81),
+              color: Color(0xff0288D1),
               fontSize: 18,
               fontWeight: FontWeight.bold),
         ),
@@ -183,10 +183,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                      Color(0x66fe5c59),
-                      Color(0x99fe5c59),
-                      Color(0xccfe5c59),
-                      Color(0xfffe5c59),
+                      Color(0xffE1F5FE),
+                      Color(0xff03A9F4),
+                      Color(0xff039BE5),
+                      Color(0xff01579B),
                     ])),
                 child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),

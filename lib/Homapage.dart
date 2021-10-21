@@ -1,14 +1,17 @@
+import 'dart:html';
+import 'dart:js';
+import 'dart:math';
+import 'package:firztair_by_theejutha/Detail_Page.dart';
+import 'package:firztair_by_theejutha/LoginScreen.dart';
+import 'package:firztair_by_theejutha/lesson_card.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:firztair_by_theejutha/constants.dart';
+import 'package:arkit_plugin/arkit_plugin.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
-
-  _HomepageState createState() => _HomepageState();
-}
-
-class CardPage extends StatefulWidget {
-  CardPage({Key? key}) : super(key: key);
-
+  HomePage({Key? key, double? width, double? height, Widget? child});
   _HomepageState createState() => _HomepageState();
 }
 
@@ -18,7 +21,7 @@ class _HomepageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tab Bar"),
+          title: Text(""),
           automaticallyImplyLeading: false,
         ),
         body: Column(
@@ -26,7 +29,7 @@ class _HomepageState extends State<HomePage> {
             _index == 0
                 ? Home(context)
                 : (_index == 1
-                    ? Search(context)
+                    ? MyCard(context)
                     : _index == 2
                         ? Notications(context)
                         : Setting(context)),
@@ -47,7 +50,7 @@ class _HomepageState extends State<HomePage> {
                         child: Container(
                             decoration: BoxDecoration(
                                 color: _index == 0
-                                    ? Colors.red
+                                    ? Colors.blue
                                     : Colors.transparent,
                                 borderRadius: BorderRadius.circular(25)),
                             child: Padding(
@@ -83,7 +86,7 @@ class _HomepageState extends State<HomePage> {
                         child: Container(
                             decoration: BoxDecoration(
                                 color: _index == 1
-                                    ? Colors.red
+                                    ? Colors.blue
                                     : Colors.transparent,
                                 borderRadius: BorderRadius.circular(25)),
                             child: Padding(
@@ -119,7 +122,7 @@ class _HomepageState extends State<HomePage> {
                         child: Container(
                             decoration: BoxDecoration(
                                 color: _index == 2
-                                    ? Colors.red
+                                    ? Colors.blue
                                     : Colors.transparent,
                                 borderRadius: BorderRadius.circular(25)),
                             child: Padding(
@@ -155,7 +158,7 @@ class _HomepageState extends State<HomePage> {
                         child: Container(
                             decoration: BoxDecoration(
                                 color: _index == 3
-                                    ? Colors.red
+                                    ? Colors.blue
                                     : Colors.transparent,
                                 borderRadius: BorderRadius.circular(25)),
                             child: Padding(
@@ -190,35 +193,154 @@ class _HomepageState extends State<HomePage> {
   @override
   Widget Home(BuildContext context) {
     return Expanded(
-        child: Center(
-      child: Text(
-        "Home",
-        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+      child: Stack(
+        children: <Widget>[
+          ListView.builder(
+              itemCount: 3, itemBuilder: (context, index) => HomeCARD(context))
+        ],
       ),
-    ));
+    );
   }
 
   @override
-  Widget Search(BuildContext context) {
+  Widget HomeCARD(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Expanded(
-        child: Container(
-      child: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Text(
-              'My Card',
-              style: TextStyle(
-                fontFamily: 'Avenir',
-                fontSize: 44,
-                color: Colors.black,
-                fontWeight: FontWeight.w900,
+      child: Stack(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.only(top: 70),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  topRight: Radius.circular(40),
+                )),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(
+              horizontal: kDefaultPadding,
+              vertical: kDefaultPadding / 2,
+            ),
+            height: 160,
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: <Widget>[
+                Container(
+                  height: 136,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(22),
+                      color: kBlueColor,
+                      boxShadow: [kDefaultShadow]),
+                  child: Container(
+                    margin: EdgeInsets.only(right: 10),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(22)),
+                  ),
+                ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                    height: 160,
+                    width: 200,
+                    child: Image.asset(
+                        "C:\Users\Acer\Desktop\FirztAir by Theejutha\firztair_by_theejutha\assets\images\icons\5855613.png",
+                        fit: BoxFit.cover),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  child: SizedBox(
+                    height: 136,
+                    width: size.width - 200,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Spacer(),
+                        Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: kDefaultPadding),
+                            child: Text(
+                              "บาดแผล",
+                              style: Theme.of(context).textTheme.button,
+                            )),
+                        Spacer(),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: kDefaultPadding * 1.5,
+                            vertical: kDefaultPadding / 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.orange.shade400.withOpacity(0.5),
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(22),
+                              topRight: Radius.circular(22),
+                            ),
+                          ),
+                          child: Text(
+                            "25%",
+                            style: Theme.of(context).textTheme.button,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget MyCard(BuildContext context) {
+    var play_arrow;
+    return Expanded(
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          color: Colors.white,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(30),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                'Course Content',
+                style: kTitleTextStyle,
               ),
-              textAlign: TextAlign.right,
-            )
-          ],
+              SizedBox(height: 30),
+              CourseContent(
+                number: "01",
+                duration: "Lesson 1",
+                title: "Bleeding",
+                isDone: true,
+              ),
+              CourseContent(
+                number: "02",
+                duration: "Lesson 2",
+                title: "Broken Bone",
+                isDone: true,
+              ),
+              CourseContent(
+                number: "03",
+                duration: "Lesson 3",
+                title: "Burns",
+                isDone: true,
+              ),
+            ],
+          ),
         ),
       ),
-    ));
+    );
   }
 
   @override
@@ -241,5 +363,80 @@ class _HomepageState extends State<HomePage> {
         style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
       ),
     ));
+  }
+}
+
+class CourseContent extends StatelessWidget {
+  final String number;
+  final String duration;
+  final String title;
+  final bool isDone;
+  const CourseContent({
+    Key? key,
+    required this.number,
+    required this.duration,
+    required this.title,
+    this.isDone = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 30),
+      child: Row(
+        children: <Widget>[
+          Text(
+            number,
+            style: kHeadingextStyle.copyWith(
+              color: kTextColor.withOpacity(.15),
+              fontSize: 32,
+            ),
+          ),
+          SizedBox(width: 20),
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "$duration \n",
+                  style: TextStyle(
+                    color: kTextColor.withOpacity(.5),
+                    fontSize: 18,
+                  ),
+                ),
+                TextSpan(
+                  text: title,
+                  style: kSubtitleTextSyule.copyWith(
+                    fontWeight: FontWeight.w600,
+                    height: 1.5,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Spacer(),
+          Container(
+              margin: EdgeInsets.only(left: 20),
+              height: 40,
+              width: 40,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.blue.withOpacity(isDone ? 1 : .5),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailPage(),
+                      ));
+                },
+                icon: Icon(
+                  Icons.play_arrow,
+                  color: Colors.white,
+                ),
+              ))
+        ],
+      ),
+    );
   }
 }

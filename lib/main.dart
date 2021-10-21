@@ -28,17 +28,15 @@ class SwordOfDemocles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ARKitSceneView(onARKitViewCreated: (c) {
-        final node = ARKitNode(
-          geometry: ARKitBox(
-              width: 0.06,
-              height: 0.06,
-              length: 0.06,
-              materials: [ARKitMaterial(fillMode: ARKitFillMode.lines)]),
-          position: Vector3(0, 0, -0.5),
-        );
-        c.add(node);
-      }),
-    );
+        body: ARKitSceneView(
+      onARKitViewCreated: (c) => onArKitViewCreated(c),
+    ));
   }
+}
+
+void onArKitViewCreated(ARKitController c) {
+  final node = ARKitNode(
+      geometry: ARKitBox(width: 0.1, height: 0.1, length: 0.1),
+      position: Vector3(0, 0, -0.5));
+  c.add(node);
 }
