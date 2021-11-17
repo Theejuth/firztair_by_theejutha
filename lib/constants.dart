@@ -40,3 +40,9 @@ const kDefaultShadow =
     BoxShadow(offset: Offset(0, 15), blurRadius: 27, color: Colors.black12);
 
 const kDefaultPadding = 20.0;
+
+const kPrimaryGradient = LinearGradient(
+  colors: [Color(0xFF46A0AE), Color(0xFF00FFCB)],
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+);
