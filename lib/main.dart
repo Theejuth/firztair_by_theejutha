@@ -2,10 +2,12 @@ import 'dart:html';
 import 'package:arkit_plugin/arkit_node.dart';
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:arkit_plugin/utils/json_converters.dart';
-import 'package:firztair_by_theejutha/LogInScreen.dart';
+import 'package:firztair_by_theejutha/LoginScreen.dart';
+import 'package:firztair_by_theejutha/quiz.dart';
 import 'package:flutter/material.dart';
 import 'package:arkit_plugin/widget/arkit_scene_view.dart';
 import 'package:vector_math/vector_math_64.dart';
+import 'achievement_data.dart';
 
 void main() {
   runApp(MyApp());
