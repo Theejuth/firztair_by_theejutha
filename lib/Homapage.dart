@@ -1,14 +1,20 @@
 import 'dart:html';
 import 'dart:js';
 import 'dart:math';
+import 'package:firztair_by_theejutha/DetailScreen.dart';
 import 'package:firztair_by_theejutha/Detail_Page.dart';
 import 'package:firztair_by_theejutha/LoginScreen.dart';
+import 'package:firztair_by_theejutha/achievement_data.dart';
 import 'package:firztair_by_theejutha/lesson_card.dart';
+import 'package:firztair_by_theejutha/quiz.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firztair_by_theejutha/constants.dart';
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:firztair_by_theejutha/DetailScreen.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
+import 'achievement_data.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key, double? width, double? height, Widget? child});
@@ -193,106 +199,28 @@ class _HomepageState extends State<HomePage> {
   @override
   Widget Home(BuildContext context) {
     return Expanded(
-      child: Stack(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          ListView.builder(
-              itemCount: 3, itemBuilder: (context, index) => HomeCARD(context))
-        ],
-      ),
-    );
-  }
-
-  @override
-  Widget HomeCARD(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Expanded(
-      child: Stack(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(top: 70),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(40),
-                  topRight: Radius.circular(40),
-                )),
+          LessonContent(
+            number: 25,
+            position:
+                "C:\Users\Acer\Desktop\FirztAir by Theejutha\firztair_by_theejutha\assets\images\icons\5855613.png",
+            title: "บาดแผล",
+            Colored: kBlueColor,
           ),
-          Container(
-            margin: EdgeInsets.symmetric(
-              horizontal: kDefaultPadding,
-              vertical: kDefaultPadding / 2,
-            ),
-            height: 160,
-            child: Stack(
-              alignment: Alignment.bottomCenter,
-              children: <Widget>[
-                Container(
-                  height: 136,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(22),
-                      color: kBlueColor,
-                      boxShadow: [kDefaultShadow]),
-                  child: Container(
-                    margin: EdgeInsets.only(right: 10),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(22)),
-                  ),
-                ),
-                Positioned(
-                  top: 0,
-                  right: 0,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                    height: 160,
-                    width: 200,
-                    child: Image.asset(
-                        "C:\Users\Acer\Desktop\FirztAir by Theejutha\firztair_by_theejutha\assets\images\icons\5855613.png",
-                        fit: BoxFit.cover),
-                  ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  child: SizedBox(
-                    height: 136,
-                    width: size.width - 200,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Spacer(),
-                        Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: kDefaultPadding),
-                            child: Text(
-                              "บาดแผล",
-                              style: Theme.of(context).textTheme.button,
-                            )),
-                        Spacer(),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: kDefaultPadding * 1.5,
-                            vertical: kDefaultPadding / 4,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Colors.orange.shade400.withOpacity(0.5),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(22),
-                              topRight: Radius.circular(22),
-                            ),
-                          ),
-                          child: Text(
-                            "25%",
-                            style: Theme.of(context).textTheme.button,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          LessonContent(
+              number: 15,
+              position:
+                  "C:\Users\Acer\Desktop\FirztAir by Theejutha\firztair_by_theejutha\assets\images\icons\5855613.png",
+              title: "การประเมินสถานการณ์",
+              Colored: gradientStartColor),
+          LessonContent(
+              number: 10,
+              position:
+                  "C:\Users\Acer\Desktop\FirztAir by Theejutha\firztair_by_theejutha\assets\images\icons\5855613.png",
+              title: "CPR",
+              Colored: kTextColor)
         ],
       ),
     );
@@ -300,45 +228,55 @@ class _HomepageState extends State<HomePage> {
 
   @override
   Widget MyCard(BuildContext context) {
-    var play_arrow;
     return Expanded(
-      child: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          color: Colors.white,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+      child: Swiper(
+        itemWidth: MediaQuery.of(context).size.width - 2 * 64,
+        layout: SwiperLayout.STACK,
+        itemBuilder: (context, index) {
+          return Stack(
             children: <Widget>[
-              Text(
-                'Course Content',
-                style: kTitleTextStyle,
-              ),
-              SizedBox(height: 30),
-              CourseContent(
-                number: "01",
-                duration: "Lesson 1",
-                title: "Bleeding",
-                isDone: true,
-              ),
-              CourseContent(
-                number: "02",
-                duration: "Lesson 2",
-                title: "Broken Bone",
-                isDone: true,
-              ),
-              CourseContent(
-                number: "03",
-                duration: "Lesson 3",
-                title: "Burns",
-                isDone: true,
-              ),
+              Column(
+                children: <Widget>[
+                  SizedBox(height: 100),
+                  Card(
+                    color: Colors.white,
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(height: 100),
+                        Text(
+                          achievement[index].name,
+                          style: TextStyle(
+                            fontSize: 44,
+                            color: const Color(0xff47455f),
+                            fontWeight: FontWeight.w900,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Text(
+                              "Know more",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: const Color(0xffe4979e),
+                                fontWeight: FontWeight.w500,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                            Icon(
+                              Icons.arrow_forward,
+                              color: secondaryTextColor,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              )
             ],
-          ),
-        ),
+          );
+        },
       ),
     );
   }
@@ -438,5 +376,121 @@ class CourseContent extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class LessonContent extends StatelessWidget {
+  final int number;
+  final String position;
+  final String title;
+  final Color Colored;
+  final bool isDone;
+  const LessonContent({
+    Key? key,
+    required this.number,
+    required this.position,
+    required this.title,
+    required this.Colored,
+    this.isDone = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Expanded(
+        child: GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => QuizPage()));
+      },
+      child: Stack(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.only(top: 70),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(40),
+                topRight: Radius.circular(40),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(
+              horizontal: kDefaultPadding,
+              vertical: kDefaultPadding / 2,
+            ),
+            height: 160,
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: <Widget>[
+                Container(
+                  height: 136,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(22),
+                      color: Colored,
+                      boxShadow: [kDefaultShadow]),
+                  child: Container(
+                    margin: EdgeInsets.only(right: 10),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(22)),
+                  ),
+                ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                    height: 160,
+                    width: 200,
+                    child: Image.asset(position, fit: BoxFit.cover),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  child: SizedBox(
+                    height: 136,
+                    width: size.width - 200,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Spacer(),
+                        Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: kDefaultPadding),
+                            child: Text(
+                              title,
+                              style: Theme.of(context).textTheme.button,
+                            )),
+                        Spacer(),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: kDefaultPadding * 1.5,
+                            vertical: kDefaultPadding / 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.orange.shade400.withOpacity(0.5),
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(22),
+                              topRight: Radius.circular(22),
+                            ),
+                          ),
+                          child: Text(
+                            "$number",
+                            style: Theme.of(context).textTheme.button,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ));
   }
 }
