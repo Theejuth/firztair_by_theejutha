@@ -2,10 +2,9 @@ import 'dart:html';
 import 'dart:js';
 import 'dart:math';
 import 'package:firztair_by_theejutha/DetailScreen.dart';
-import 'package:firztair_by_theejutha/Detail_Page.dart';
+import 'package:firztair_by_theejutha/Former_CardPage.dart';
 import 'package:firztair_by_theejutha/LoginScreen.dart';
 import 'package:firztair_by_theejutha/achievement_data.dart';
-import 'package:firztair_by_theejutha/lesson_card.dart';
 import 'package:firztair_by_theejutha/quiz.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +12,6 @@ import 'package:firztair_by_theejutha/constants.dart';
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firztair_by_theejutha/DetailScreen.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 import 'achievement_data.dart';
 
 class HomePage extends StatefulWidget {
@@ -110,7 +108,7 @@ class _HomepageState extends State<HomePage> {
                                         padding:
                                             const EdgeInsets.only(left: 12.0),
                                         child: Text(
-                                          _index == 1 ? "Search" : "",
+                                          _index == 1 ? "Card" : "",
                                           style: TextStyle(
                                               color: _index == 1
                                                   ? Colors.white
@@ -228,57 +226,7 @@ class _HomepageState extends State<HomePage> {
 
   @override
   Widget MyCard(BuildContext context) {
-    return Expanded(
-      child: Swiper(
-        itemWidth: MediaQuery.of(context).size.width - 2 * 64,
-        layout: SwiperLayout.STACK,
-        itemBuilder: (context, index) {
-          return Stack(
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  SizedBox(height: 100),
-                  Card(
-                    color: Colors.white,
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(height: 100),
-                        Text(
-                          achievement[index].name,
-                          style: TextStyle(
-                            fontSize: 44,
-                            color: const Color(0xff47455f),
-                            fontWeight: FontWeight.w900,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Text(
-                              "Know more",
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: const Color(0xffe4979e),
-                                fontWeight: FontWeight.w500,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                            Icon(
-                              Icons.arrow_forward,
-                              color: secondaryTextColor,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              )
-            ],
-          );
-        },
-      ),
-    );
+    return Expanded(child: Text("Card"));
   }
 
   @override
@@ -401,7 +349,7 @@ class LessonContent extends StatelessWidget {
         child: GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => QuizPage()));
+            context, MaterialPageRoute(builder: (context) => DetailScreen()));
       },
       child: Stack(
         children: <Widget>[
