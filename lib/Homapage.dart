@@ -238,22 +238,9 @@ class _HomepageState extends State<HomePage> {
   @override
   Widget MyCard(BuildContext context) {
     return Expanded(
-        child: StorySwiper.builder(
-      itemCount: colors.length,
-      aspectRatio: 2 / 3,
-      depthFactor: 0.2,
-      dx: 60,
-      dy: 20,
-      paddingStart: 32,
-      verticalPadding: 32,
-      visiblePageCount: 30,
-      widgetBuilder: (index) {
-        return Container(
-          decoration: BoxDecoration(
-              color: colors[index],
-              borderRadius: BorderRadius.all(Radius.circular(16))),
-        );
-      },
+        child: Text(
+      "Card",
+      style: TextStyle(fontFamily: 'Prompt'),
     ));
   }
 
