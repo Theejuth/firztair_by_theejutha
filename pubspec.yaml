@@ -35,7 +35,10 @@ dependencies:
   arkit_plugin: ^1.0.1
   carousel_slider: ^4.0.0
   flutter_svg: ^0.22.0
+<<<<<<< HEAD
   arcore_flutter_plugin:
+=======
+>>>>>>> 03f75f44d3267b92c1cde7a7605d5581e1df1627
 
 dev_dependencies:
   flutter_test:

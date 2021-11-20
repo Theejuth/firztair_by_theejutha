@@ -12,7 +12,7 @@ class _ttsState extends State<tts> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return MaterialApp(
       backgroundColor: Colors.white,
       appBar: AppBar(
           leading: IconButton(

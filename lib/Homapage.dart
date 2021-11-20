@@ -11,7 +11,10 @@ import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firztair_by_theejutha/DetailScreen.dart';
 import 'achievement_data.dart';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 03f75f44d3267b92c1cde7a7605d5581e1df1627
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key, double? width, double? height, Widget? child});
@@ -236,7 +239,14 @@ class _HomepageState extends State<HomePage> {
   @override
   Widget MyCard(BuildContext context) {
     return Expanded(
+<<<<<<< HEAD
         child: (Text("Hello World")));
+=======
+        child: Text(
+      "Card",
+      style: TextStyle(fontFamily: 'Prompt'),
+    ));
+>>>>>>> 03f75f44d3267b92c1cde7a7605d5581e1df1627
   }
 
   @override
