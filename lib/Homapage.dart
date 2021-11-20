@@ -13,7 +13,6 @@ import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firztair_by_theejutha/DetailScreen.dart';
 import 'achievement_data.dart';
-import 'package:storyswiper/storyswiper.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key, double? width, double? height, Widget? child});
