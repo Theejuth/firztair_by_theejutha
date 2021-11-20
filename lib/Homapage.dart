@@ -1,5 +1,3 @@
-import 'dart:html';
-import 'dart:js';
 import 'dart:math';
 import 'package:firztair_by_theejutha/Detail_Page.dart';
 import 'package:firztair_by_theejutha/LoginScreen.dart';

@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'package:arkit_plugin/arkit_node.dart';
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:arkit_plugin/utils/json_converters.dart';

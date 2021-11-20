@@ -1,5 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.firztair_by_theejutha">
+   
+   <uses-sdk android:minSdkVersion="24"/>
+   
+   <uses-permission android:name="android.permission.INTERNET"/>
+   <uses-permission android:name="android.permission.WRITE_EXTERNAL-STORAGE"/>
+   <uses-permission android:name="android.permission.READ_EXTERNAL-STORAGE"/>
+   <uses-permission android:name="android.permission.CAMERA"/>
+   <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+   <uses-feature android:name="android.hardware.camera"/>
+   <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true"/>
+   
    <application
         android:label="firztair_by_theejutha"
         android:icon="@mipmap/ic_launcher">
@@ -27,6 +38,8 @@
               android:name="io.flutter.embedding.android.SplashScreenDrawable"
               android:resource="@drawable/launch_background"
               />
+              <meta-data android:name="com.google.ar.core" android:value="required" />
+              
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
