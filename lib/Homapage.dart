@@ -11,7 +11,7 @@ import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firztair_by_theejutha/DetailScreen.dart';
 import 'achievement_data.dart';
-import 'package:storyswiper/storyswiper.dart';
+
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key, double? width, double? height, Widget? child});
@@ -236,23 +236,7 @@ class _HomepageState extends State<HomePage> {
   @override
   Widget MyCard(BuildContext context) {
     return Expanded(
-        child: StorySwiper.builder(
-      itemCount: colors.length,
-      aspectRatio: 2 / 3,
-      depthFactor: 0.2,
-      dx: 60,
-      dy: 20,
-      paddingStart: 32,
-      verticalPadding: 32,
-      visiblePageCount: 30,
-      widgetBuilder: (index) {
-        return Container(
-          decoration: BoxDecoration(
-              color: colors[index],
-              borderRadius: BorderRadius.all(Radius.circular(16))),
-        );
-      },
-    ));
+        child: (Text("Hello World")));
   }
 
   @override
