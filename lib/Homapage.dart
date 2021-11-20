@@ -1,5 +1,3 @@
-import 'dart:html';
-import 'dart:js';
 import 'dart:math';
 import 'package:firztair_by_theejutha/DetailScreen.dart';
 import 'package:firztair_by_theejutha/Former_CardPage.dart';
