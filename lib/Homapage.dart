@@ -204,19 +204,24 @@ class _HomepageState extends State<HomePage> {
                 "C:\Users\Acer\Desktop\FirztAir by Theejutha\firztair_by_theejutha\assets\images\icons\5855613.png",
             title: "บาดแผล",
             Colored: kBlueColor,
+            location: DetailScreen(),
           ),
           LessonContent(
-              number: 15,
-              position:
-                  "C:\Users\Acer\Desktop\FirztAir by Theejutha\firztair_by_theejutha\assets\images\icons\5855613.png",
-              title: "การประเมินสถานการณ์",
-              Colored: gradientStartColor),
+            number: 15,
+            position:
+                "C:\Users\Acer\Desktop\FirztAir by Theejutha\firztair_by_theejutha\assets\images\icons\5855613.png",
+            title: "การประเมินสถานการณ์",
+            Colored: gradientStartColor,
+            location: DetailScreen(),
+          ),
           LessonContent(
-              number: 10,
-              position:
-                  "C:\Users\Acer\Desktop\FirztAir by Theejutha\firztair_by_theejutha\assets\images\icons\5855613.png",
-              title: "CPR",
-              Colored: kTextColor)
+            number: 10,
+            position:
+                "C:\Users\Acer\Desktop\FirztAir by Theejutha\firztair_by_theejutha\assets\images\icons\5855613.png",
+            title: "CPR",
+            Colored: kTextColor,
+            location: DetailScreen(),
+          )
         ],
       ),
     );
@@ -237,7 +242,7 @@ class _HomepageState extends State<HomePage> {
     return Expanded(
         child: Text(
       "Card",
-      style: TextStyle(fontFamily: 'Prompt'),
+      style: TextStyle(fontFamily: 'Prompt', fontWeight: FontWeight.bold),
     ));
   }
 
@@ -345,12 +350,14 @@ class LessonContent extends StatelessWidget {
   final String title;
   final Color Colored;
   final bool isDone;
+  final Widget location;
   const LessonContent({
     Key? key,
     required this.number,
     required this.position,
     required this.title,
     required this.Colored,
+    required this.location,
     this.isDone = false,
   }) : super(key: key);
 
@@ -361,7 +368,7 @@ class LessonContent extends StatelessWidget {
         child: GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => DetailScreen()));
+            context, MaterialPageRoute(builder: (context) => location));
       },
       child: Stack(
         children: <Widget>[
