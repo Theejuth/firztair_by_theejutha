@@ -163,13 +163,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.10.0"
-  storyswiper:
-    dependency: "direct main"
-    description:
-      name: storyswiper
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1"
   stream_channel:
     dependency: transitive
     description:
