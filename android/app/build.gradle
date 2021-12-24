@@ -66,5 +66,14 @@ dependencies {
     implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.8.0'
     implementation 'com.google.ar.sceneform:core:1.8.0'
     implementation 'com.google.ar:core:1.8.0'
-
 }
+
+apply plugin : 'com.google.ar.sceneform.plugin'
+
+// Change when get new model
+// sceneform.asset(
+//     'sampledata/Toon_Gator_Complete.obj',
+//     'default',
+//     'sampledata/Toon_Gator_Complete.sfa',
+//     'src/main/assets/Toon'
+// )
