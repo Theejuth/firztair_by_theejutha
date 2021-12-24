@@ -1,19 +1,15 @@
-import 'dart:math';
 import 'package:firztair_by_theejutha/DetailScreen.dart';
+import 'package:firztair_by_theejutha/DetailScreen0.dart';
+import 'package:firztair_by_theejutha/DetailScreen1.dart';
 import 'package:firztair_by_theejutha/Former_CardPage.dart';
-import 'package:firztair_by_theejutha/LoginScreen.dart';
-import 'package:firztair_by_theejutha/achievement_data.dart';
-import 'package:firztair_by_theejutha/quiz.dart';
-import 'package:flutter/gestures.dart';
+import 'package:firztair_by_theejutha/NavigationDrawerWidget.dart';
+import 'package:firztair_by_theejutha/ProtoDetail.dart';
 import 'package:flutter/material.dart';
 import 'package:firztair_by_theejutha/constants.dart';
-import 'package:arkit_plugin/arkit_plugin.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:firztair_by_theejutha/DetailScreen.dart';
-import 'achievement_data.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key, double? width, double? height, Widget? child});
+  HomePage({Key key, double width, double height, Widget child});
   _HomepageState createState() => _HomepageState();
 }
 
@@ -22,6 +18,7 @@ class _HomepageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: NavigationDrawerWidget(),
         appBar: AppBar(
           title: Text(""),
           automaticallyImplyLeading: false,
@@ -200,43 +197,29 @@ class _HomepageState extends State<HomePage> {
         children: <Widget>[
           LessonContent(
             number: 25,
-            position:
-                "C:\Users\Acer\Desktop\FirztAir by Theejutha\firztair_by_theejutha\assets\images\icons\5855613.png",
-            title: "บาดแผล",
+            position: "https://cdn-icons-png.flaticon.com/512/2873/2873008.png",
+            title: "การปฐมพยาบาล",
             Colored: kBlueColor,
-            location: DetailScreen(),
+            location: ProtDetail(),
+            Red: 110,
+            Green: 138,
+            Blue: 250,
           ),
           LessonContent(
             number: 15,
-            position:
-                "C:\Users\Acer\Desktop\FirztAir by Theejutha\firztair_by_theejutha\assets\images\icons\5855613.png",
+            position: "https://image.flaticon.com/icons/png/512/65/65000.png",
             title: "การประเมินสถานการณ์",
             Colored: gradientStartColor,
-            location: DetailScreen(),
+            location: DetailScreen0(),
+            Red: 0,
+            Green: 80,
+            Blue: 172,
           ),
-          LessonContent(
-            number: 10,
-            position:
-                "C:\Users\Acer\Desktop\FirztAir by Theejutha\firztair_by_theejutha\assets\images\icons\5855613.png",
-            title: "CPR",
-            Colored: kTextColor,
-            location: DetailScreen(),
-          )
         ],
       ),
     );
   }
 
-  final List<Color> colors = [
-    Colors.red,
-    Colors.orange,
-    Colors.yellow,
-    Colors.green,
-    Colors.blue,
-    Colors.blue,
-    Colors.indigo,
-    Colors.purple
-  ];
   @override
   Widget MyCard(BuildContext context) {
     return Expanded(
@@ -275,10 +258,10 @@ class CourseContent extends StatelessWidget {
   final String title;
   final bool isDone;
   const CourseContent({
-    Key? key,
-    required this.number,
-    required this.duration,
-    required this.title,
+    Key key,
+    this.number,
+    this.duration,
+    this.title,
     this.isDone = false,
   }) : super(key: key);
 
@@ -346,20 +329,27 @@ class CourseContent extends StatelessWidget {
 
 class LessonContent extends StatelessWidget {
   final int number;
+  final int Red;
+  final int Green;
+  final int Blue;
   final String position;
   final String title;
   final Color Colored;
   final bool isDone;
   final Widget location;
-  const LessonContent({
-    Key? key,
-    required this.number,
-    required this.position,
-    required this.title,
-    required this.Colored,
-    required this.location,
-    this.isDone = false,
-  }) : super(key: key);
+
+  LessonContent(
+      {Key key,
+      this.number,
+      this.position,
+      this.title,
+      this.Colored,
+      this.location,
+      this.isDone = false,
+      this.Red,
+      this.Green,
+      this.Blue})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -411,7 +401,11 @@ class LessonContent extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
                     height: 160,
                     width: 200,
-                    child: Image.asset(position, fit: BoxFit.cover),
+                    child: Image.network(
+                      position,
+                      fit: BoxFit.cover,
+                      color: Color.fromRGBO(Red, Green, Blue, 1),
+                    ),
                   ),
                 ),
                 Positioned(
@@ -429,7 +423,8 @@ class LessonContent extends StatelessWidget {
                                 horizontal: kDefaultPadding),
                             child: Text(
                               title,
-                              style: Theme.of(context).textTheme.button,
+                              style: GoogleFonts.prompt(
+                                  fontSize: 18, color: Colors.black),
                             )),
                         Spacer(),
                         Container(
