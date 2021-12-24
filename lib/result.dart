@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class ResultScreen extends StatefulWidget {
   final int score;
-  const ResultScreen(this.score, {Key? key}) : super(key: key);
+  const ResultScreen(this.score, {Key key}) : super(key: key);
 
   @override
   _ResultScreenState createState() => _ResultScreenState();
