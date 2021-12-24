@@ -2,12 +2,7 @@ class Lesson {
   final int id, hazard;
   final String title, description, image;
 
-  Lesson(
-      {required this.id,
-      required this.hazard,
-      required this.title,
-      required this.description,
-      required this.image});
+  Lesson({this.id, this.hazard, this.title, this.description, this.image});
 }
 
 List<Lesson> lessons = [
