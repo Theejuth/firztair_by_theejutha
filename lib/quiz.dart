@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 class QuizPage extends StatefulWidget {
-  const QuizPage({Key? key}) : super(key: key);
+  const QuizPage({Key key}) : super(key: key);
 
   @override
   _QuizPageState createState() => _QuizPageState();
 }
 
 class _QuizPageState extends State<QuizPage> {
-  PageController? _controller = PageController(initialPage: 0);
+  PageController _controller = PageController(initialPage: 0);
   bool isPressed = false;
   Color isTrue = Colors.green;
   Color isWrong = Colors.red;
@@ -26,7 +26,7 @@ class _QuizPageState extends State<QuizPage> {
         padding: EdgeInsets.all(18),
         child: PageView.builder(
           physics: const NeverScrollableScrollPhysics(),
-          controller: _controller!,
+          controller: _controller,
           onPageChanged: (page) {
             setState(() {
               isPressed = false;
@@ -56,25 +56,21 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    questions[index].question!,
+                    questions[index].question,
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 32,
                     ),
                   ),
                   SizedBox(height: 35),
-                  for (int i = 0; i < questions[index].answers!.length; i++)
+                  for (int i = 0; i < questions[index].answers.length; i++)
                     Container(
                       width: double.infinity,
                       margin: EdgeInsets.only(bottom: 12),
                       child: MaterialButton(
                         shape: StadiumBorder(),
                         color: isPressed
-                            ? questions[index]
-                                    .answers!
-                                    .entries
-                                    .toList()[i]
-                                    .value
+                            ? questions[index].answers.entries.toList()[i].value
                                 ? isTrue
                                 : isWrong
                             : kTextColor,
@@ -86,7 +82,7 @@ class _QuizPageState extends State<QuizPage> {
                                   isPressed = true;
                                 });
                                 if (questions[index]
-                                    .answers!
+                                    .answers
                                     .entries
                                     .toList()[i]
                                     .value) {
@@ -95,7 +91,7 @@ class _QuizPageState extends State<QuizPage> {
                                 }
                               },
                         child: Text(
-                          questions[index].answers!.keys.toList()[i],
+                          questions[index].answers.keys.toList()[i],
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
@@ -118,7 +114,7 @@ class _QuizPageState extends State<QuizPage> {
                                                 ResultScreen(score)));
                                   }
                                 : () {
-                                    _controller!.nextPage(
+                                    _controller.nextPage(
                                         duration: Duration(
                                           milliseconds: 500,
                                         ),
