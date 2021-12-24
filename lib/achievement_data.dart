@@ -6,10 +6,7 @@ class achievementInfo {
   final List<String> images;
 
   achievementInfo(this.position,
-      {required this.name,
-      required this.iconImage,
-      required this.description,
-      required this.images});
+      {this.name, this.iconImage, this.description, this.images});
 }
 
 List<achievementInfo> achievement = [
