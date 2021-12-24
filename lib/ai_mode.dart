@@ -15,7 +15,7 @@ import 'package:image_picker/image_picker.dart';
 // }
 
 class PickingImage extends StatefulWidget {
-  const PickingImage({Key? key}) : super(key: key);
+  const PickingImage({Key key}) : super(key: key);
 
   @override
   _PickingImage createState() => _PickingImage();
@@ -23,7 +23,7 @@ class PickingImage extends StatefulWidget {
 
 class _PickingImage extends State<PickingImage> {
   final ImagePicker _picker = ImagePicker();
-  XFile? image;
+  XFile image;
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +79,7 @@ class _PickingImage extends State<PickingImage> {
               ? Text("No Image Found Please Insert the Image")
               : // if image == null
               Image.file(
-                  File(image!.path),
+                  File(image.path),
                   width: 250,
                   fit: BoxFit.cover,
                 )
@@ -90,7 +90,7 @@ class _PickingImage extends State<PickingImage> {
 
   void filePicker() async {
     try {
-      final XFile? selectImage =
+      final XFile selectImage =
           await _picker.pickImage(source: ImageSource.gallery);
       // print(selectImage!.path);
       setState(() {
@@ -103,7 +103,7 @@ class _PickingImage extends State<PickingImage> {
 
   void CameraPicker() async {
     try {
-      final XFile? selectImage =
+      final XFile selectImage =
           await _picker.pickImage(source: ImageSource.camera);
       // print(selectImage!.path);
       setState(() {
