@@ -1,10 +1,9 @@
-import 'package:firztair_by_theejutha/Homapage.dart';
 import 'package:firztair_by_theejutha/main.dart';
 import 'package:flutter/material.dart';
 import 'package:firztair_by_theejutha/constants.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  const DetailPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
