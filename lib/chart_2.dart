@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:tts_test/copy_stopwatch_2.dart';
+import 'package:firztair_by_theejutha/copy_stopwatch_2.dart';
 
 class chartStatic extends StatefulWidget {
   final List<double> graphValue; // passing data from another page

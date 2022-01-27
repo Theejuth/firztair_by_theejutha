@@ -3,9 +3,7 @@ import 'package:animator/animator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:tts_test/chart.dart';
-import 'package:tts_test/chart_2.dart';
-import 'package:tts_test/image.dart';
+import 'package:firztair_by_theejutha/chart_2.dart';
 
 class stopWatch2 extends StatefulWidget {
   stopWatch2({Key key}) : super(key: key);
