@@ -42,8 +42,9 @@ class _DetailScreen0State extends State<DetailScreen0> {
           content: Column(
             children: <Widget>[
               Image.network(
-                'https://static.thenounproject.com/png/2427724-200.png',
-                color: const Color.fromRGBO(110, 138, 250, 1),
+                'https://cdn0.iconfinder.com/data/icons/coronavirus-glyph-2/60/013_-_Use_Sanitiser-hand-sanitizer-gel-anti-bacterial-coronavirus-512.png',
+                scale: 3,
+                color: gradientStartColor,
               )
             ],
           ),
@@ -59,8 +60,9 @@ class _DetailScreen0State extends State<DetailScreen0> {
           content: Column(
             children: <Widget>[
               Image.network(
-                  "https://static.thenounproject.com/png/2427817-200.png",
-                  color: const Color.fromRGBO(110, 138, 250, 1))
+                  "https://image.flaticon.com/icons/png/512/139/139594.png",
+                  scale: 3,
+                  color: gradientStartColor)
             ],
           ),
         ),
@@ -75,8 +77,9 @@ class _DetailScreen0State extends State<DetailScreen0> {
             content: Column(
               children: <Widget>[
                 Image.network(
-                    "https://static.thenounproject.com/png/2427823-200.png",
-                    color: const Color.fromRGBO(110, 138, 250, 1))
+                    "https://cdn-icons-png.flaticon.com/512/2755/2755095.png",
+                    scale: 3,
+                    color: gradientStartColor)
               ],
             )),
         Step(
@@ -89,9 +92,8 @@ class _DetailScreen0State extends State<DetailScreen0> {
           ),
           content: Column(
             children: <Widget>[
-              Image.network(
-                  "https://static.thenounproject.com/png/2427749-200.png",
-                  color: const Color.fromRGBO(110, 138, 250, 1))
+              Image.network("http://cdn.onlinewebfonts.com/svg/img_493081.png",
+                  scale: 5, color: gradientStartColor)
             ],
           ),
         ),
@@ -105,7 +107,7 @@ class _DetailScreen0State extends State<DetailScreen0> {
             children: <Widget>[
               Image.network(
                 "https://cdn.iconscout.com/icon/free/png-256/ambulance-2080900-1757005.png",
-                color: const Color.fromRGBO(110, 138, 250, 1),
+                color: gradientStartColor,
               )
             ],
           ),

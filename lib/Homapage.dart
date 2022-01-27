@@ -222,11 +222,7 @@ class _HomepageState extends State<HomePage> {
 
   @override
   Widget MyCard(BuildContext context) {
-    return Expanded(
-        child: Text(
-      "Card",
-      style: TextStyle(fontFamily: 'Prompt', fontWeight: FontWeight.bold),
-    ));
+    return Expanded(child: (Text("Hello World")));
   }
 
   @override

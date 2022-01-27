@@ -232,7 +232,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 Container(
                   height: 250,
                   child: ListView.builder(
-                      itemCount: 10,
+                      itemCount: 4,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return Card(
@@ -242,7 +242,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             child: AspectRatio(
                               aspectRatio: 1,
                               child: Image.network(
-                                'https://images.onhealth.com/images/slideshow/caring-for-wounds-s1-blood-finger.jpg',
+                                Images[index],
                                 fit: BoxFit.cover,
                               ),
                             ));
@@ -284,3 +284,10 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 }
+
+List Images = [
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiBcEQDLHYD8aZL6uBGjarzZoFffSSzJYtFfRViIAx1p6__Y71Uu-g0FA5wGDdFDEJ91U&usqp=CAU",
+  "https://media.istockphoto.com/photos/hip-replacement-surgery-scar-picture-id168249627?k=20&m=168249627&s=170667a&w=0&h=jFJDe8DoiMJuv_8QUaSBc0gL76b_QlbDgrCQzZKA1iw=",
+  "https://cdn.shopify.com/s/files/1/0315/1131/4570/files/scar-from-cut_1024x1024.jpg?v=1600929233",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnsz2ct4eGnW-MMVyFBOKs8WvT9zSMOiHJV7qNTZXXqDGEJ1oxD_DzcJTsiqlnrNI4270&usqp=CAU",
+];

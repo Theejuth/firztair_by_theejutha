@@ -1,5 +1,7 @@
+import 'package:firztair_by_theejutha/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MinigamePage extends StatefulWidget {
   @override
@@ -23,16 +25,46 @@ class _MinigamePageState extends State<MinigamePage> {
     gameOver = false;
     score = 0;
     items = [
-      ItemModel(icon: FontAwesomeIcons.coffee, name: "Coffee", value: "Coffee"),
-      ItemModel(icon: FontAwesomeIcons.dog, name: "dog", value: "dog"),
-      ItemModel(icon: FontAwesomeIcons.cat, name: "Cat", value: "Cat"),
       ItemModel(
-          icon: FontAwesomeIcons.birthdayCake, name: "Cake", value: "Cake"),
-      ItemModel(icon: FontAwesomeIcons.bus, name: "bus", value: "bus"),
+          image: Image.network(
+            "https://static.thenounproject.com/png/2427724-200.png",
+            scale: 3,
+          ),
+          name: "Step 1 : ใช้สำลีเช็ดเลือด และกดห้ามเลือด",
+          value: "Step 1 : ใช้สำลีเช็ดเลือด และกดห้ามเลือด"),
+      ItemModel(
+          image: Image.network(
+            "https://static.thenounproject.com/png/2427817-200.png",
+            scale: 3,
+          ),
+          name: "Step 2 : ใช้แอลกอฮอล์เช็ดทำความสะอาดรอบๆ แผล",
+          value: "Step 2 : ใช้แอลกอฮอล์เช็ดทำความสะอาดรอบๆ แผล"),
+      ItemModel(
+          image: Image.network(
+            "https://static.thenounproject.com/png/2427823-200.png",
+            scale: 3,
+          ),
+          name:
+              "Step 3 : ใช้สำลีชุบเบตาดีน หรือ โปรวิดี ไอโอดีนใส่แผลสดทารอบๆ แผล",
+          value:
+              "Step 3 : ใช้สำลีชุบเบตาดีน หรือ โปรวิดี ไอโอดีนใส่แผลสดทารอบๆ แผล"),
+      ItemModel(
+          image: Image.network(
+            "https://static.thenounproject.com/png/2427749-200.png",
+            scale: 3,
+          ),
+          name: "Step 4 : ใช้ผ้าพันแผล หรือพลาสเตอร์ปิดแผล",
+          value: "Step 4 : ใช้ผ้าพันแผล หรือพลาสเตอร์ปิดแผล"),
+      ItemModel(
+          image: Image.network(
+            "https://cdn.iconscout.com/icon/free/png-256/ambulance-2080900-1757005.png",
+            scale: 3,
+          ),
+          name: "Step 5 : รีบน้ำผู้ป่วยส่งโรงพยาบาลในกรณีบาดแผลรุนแรง",
+          value: "Step 5 : รีบน้ำผู้ป่วยส่งโรงพยาบาลในกรณีบาดแผลรุนแรง"),
     ];
     items2 = List<ItemModel>.from(items);
     items.shuffle();
-    items2.shuffle();
   }
 
   @override
@@ -53,7 +85,7 @@ class _MinigamePageState extends State<MinigamePage> {
               TextSpan(
                   text: "$score",
                   style: TextStyle(
-                    color: Colors.green,
+                    color: kTextColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 30.0,
                   ))
@@ -67,20 +99,15 @@ class _MinigamePageState extends State<MinigamePage> {
                       margin: const EdgeInsets.all(8.0),
                       child: Draggable<ItemModel>(
                         data: item,
-                        childWhenDragging: Icon(
-                          item.icon,
+                        childWhenDragging: Container(
+                          child: item.image,
                           color: Colors.grey,
-                          size: 50.0,
                         ),
-                        feedback: Icon(
-                          item.icon,
-                          color: Colors.teal,
-                          size: 50,
+                        feedback: Container(
+                          child: item.image,
                         ),
-                        child: Icon(
-                          item.icon,
-                          color: Colors.teal,
-                          size: 50,
+                        child: Container(
+                          child: item.image,
                         ),
                       ),
                     );
@@ -117,14 +144,14 @@ class _MinigamePageState extends State<MinigamePage> {
                       },
                       builder: (context, acceptedItems, rejectedItem) =>
                           Container(
-                        color: item.accepting ? Colors.red : Colors.teal,
+                        color: item.accepting ? Colors.red : Colors.cyan,
                         height: 50,
                         width: 100,
                         alignment: Alignment.center,
                         margin: const EdgeInsets.all(8.0),
                         child: Text(
                           item.name,
-                          style: TextStyle(
+                          style: GoogleFonts.prompt(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 18.0),
@@ -165,8 +192,8 @@ class _MinigamePageState extends State<MinigamePage> {
 class ItemModel {
   final String name;
   final String value;
-  final IconData icon;
+  final Image image;
   bool accepting;
 
-  ItemModel({this.name, this.value, this.icon, this.accepting = false});
+  ItemModel({this.name, this.value, this.image, this.accepting = false});
 }
