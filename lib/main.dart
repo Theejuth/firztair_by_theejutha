@@ -1,5 +1,6 @@
 import 'package:arkit_plugin/arkit_node.dart';
 import 'package:arkit_plugin/arkit_plugin.dart';
+import 'package:firztair_by_theejutha/Dashboard.dart';
 import 'package:firztair_by_theejutha/Homapage.dart';
 import 'package:flutter/material.dart';
 import 'package:arkit_plugin/widget/arkit_scene_view.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Login UI',
       theme: ThemeData(visualDensity: VisualDensity.adaptivePlatformDensity),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: HomeScreen(),
     );
   }
 }

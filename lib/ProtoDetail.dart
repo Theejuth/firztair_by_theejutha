@@ -5,6 +5,7 @@ import 'package:firztair_by_theejutha/Homapage.dart';
 import 'package:firztair_by_theejutha/constants.dart';
 import 'package:firztair_by_theejutha/models/lesson.dart';
 import 'package:flutter/material.dart';
+import 'package:firztair_by_theejutha/copy_stopwatch_2.dart';
 
 class ProtDetail extends StatefulWidget {
   const ProtDetail({Key key}) : super(key: key);

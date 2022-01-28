@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:firztair_by_theejutha/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'copy_stopwatch_2.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({Key key, double width, double height, Widget child});
   _HomepageState createState() => _HomepageState();
@@ -210,7 +212,7 @@ class _HomepageState extends State<HomePage> {
             position: "https://image.flaticon.com/icons/png/512/65/65000.png",
             title: "การประเมินสถานการณ์",
             Colored: gradientStartColor,
-            location: DetailScreen0(),
+            location: stopWatch2(),
             Red: 0,
             Green: 80,
             Blue: 172,
